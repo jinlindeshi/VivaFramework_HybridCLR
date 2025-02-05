@@ -1,0 +1,9 @@
+.idea
+Assets/HybridCLRBuildCache
+Assets/.DS_Store
+Library
+Logs
+Temp
+UserSettings
+framework_hybridclr
+.DS_Store

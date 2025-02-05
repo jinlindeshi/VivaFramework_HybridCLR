@@ -1,0 +1,10 @@
+HotUpdate.dll.bytes|bc883ded52e7d7fc7cf49c7363e42d41
+HotUpdateTest.dll.bytes|eefd1021f36611d27a291874d5615271
+StreamingAssets|7c50979c1a5533f44506a3e73b324e9d
+StreamingAssets.manifest|19ca4582df2a471e665d6d3b58cac92e
+System.Core.dll.bytes|438321ccf5b7bfeb08185eb48b0301b9
+System.dll.bytes|577f8b8d743898c749cf0f847169b938
+mscorlib.dll.bytes|054a12413248450007112da0b95f8a5a
+prefabs|71a39a90197648570360f2929f684084
+prefabs.unity3d|81cdf11cf802bc5a3e076a2c2d9ea958
+prefabs.unity3d.manifest|ed0b03857ff9f50ab92336ecc0b4d022

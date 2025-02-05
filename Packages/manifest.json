@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "com.code-philosophy.hybridclr": "https://gitee.com/focus-creative-games/hybridclr_unity.git",
+    "com.unity.ide.rider": "3.0.34",
+    "com.unity.ugui": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequestwww": "1.0.0"
+  }
+}
