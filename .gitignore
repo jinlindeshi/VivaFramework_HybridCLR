@@ -7,3 +7,6 @@ Temp
 UserSettings
 framework_hybridclr
 .DS_Store
+Assets/StreamingAssets
+obj
+Assets/StreamingAssets
