@@ -11,3 +11,4 @@ Assets/StreamingAssets
 obj
 Assets/StreamingAssets
 HybridCLRData
+*.csproj
