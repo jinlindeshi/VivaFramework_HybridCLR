@@ -32,7 +32,7 @@ namespace VivaFramework.Components
 		public void OnPointerDown (PointerEventData eventData)
         {
             TakeCall(DOWN, eventData);
-            //print("木哈哈哈 - OnPointerDown");
+            // print("木哈哈哈 - OnPointerDown");
         }
 
 		public void OnPointerUp (PointerEventData eventData)

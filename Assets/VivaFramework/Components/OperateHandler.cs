@@ -7,6 +7,7 @@ namespace VivaFramework.Components
 {
     public class OperateHandler : MonoBehaviour
     {
+        public const string DESTROY = "DESTROY";
         protected Dictionary<string, List<Action<PointerEventData>>> funDic = new Dictionary<string, List<Action<PointerEventData>>>();
 
         public Action<PointerEventData> AddCall(string type, Action<PointerEventData> call)
@@ -18,6 +19,11 @@ namespace VivaFramework.Components
             funDic[type].Add(call);
 
             return call;
+        }
+
+        private void OnDestroy()
+        {
+            TakeCall(DESTROY, null);
         }
 
         public void RemoveCall(string type, Action<PointerEventData> call)

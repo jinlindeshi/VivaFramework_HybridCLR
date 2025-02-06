@@ -19,7 +19,7 @@ MonoBehaviour:
     assetLoadType: 0
     compressDataPackage: 0
     VideoUrl: 
-    DST: /Volumes/MacMiniHelper/Git/hybridclr_trial/
+    DST: D:/Gitee/VivaFramework_HybridCLR
     StreamCDN: 
     bundleHashLength: 32
     bundlePathIdentifier: StreamingAssets;
