@@ -366,7 +366,7 @@ namespace VivaFramework
             Debug.Log("你妹啊~LoadDlls");
             var assets = new List<string>
             {
-                "HotUpdateTest.dll.bytes",
+                "HotUpdateCSP.dll.bytes",
             }.Concat(AOTMetaAssemblyFiles);
 
             foreach (var asset in assets)
@@ -437,12 +437,12 @@ namespace VivaFramework
             if (AppConst.UseBundle == true)
             {
                 InitDlls();
-                _hotUpdateAss = Assembly.Load(_dllDatas["HotUpdateTest.dll.bytes"]);
+                _hotUpdateAss = Assembly.Load(_dllDatas["HotUpdateCSP.dll.bytes"]);
             }
             else
             {
                 _hotUpdateAss = System.AppDomain.CurrentDomain.GetAssemblies()
-                    .First(a => a.GetName().Name == "HotUpdateTest");
+                    .First(a => a.GetName().Name == "HotUpdateCSP");
             }
 
             InitManagers();

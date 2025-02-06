@@ -1,5 +1,5 @@
 {
-    "name": "HotUpdate",
+    "name": "HotUpdateCSP",
     "rootNamespace": "",
     "references": [
         "GUID:735ebb15cba9fe3458a19e662ec63e32"

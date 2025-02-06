@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VivaFramework;
+using VivaFramework.Utils;
 
 public class Test1
 {
@@ -13,5 +14,6 @@ public class Test1
         GameObject p = Main.resManager.LoadPrefabAtPath("Prefabs/Sphere.prefab");
         Debug.Log("你妹啊~22 " + p);
         GameObject.Instantiate(p);
+        
     }
 }
