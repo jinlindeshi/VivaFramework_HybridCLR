@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using VivaFramework.Components;
 
@@ -19,7 +20,12 @@ namespace VivaFramework.Utils
             BtnInfo info = new BtnInfo{go=go,UpCall=UpCall,DownCall=DownCall,noEffect=noEffect};
             if (go.GetComponent<PointerHandler>() == null)go.AddComponent<PointerHandler>();
             PointerHandler component = go.GetComponent<PointerHandler>();
-            // component.AddCall(PointerHandler.DOWN, data => go.transform.)
+            //TODO
+            component.AddCall(PointerHandler.DOWN, (data) =>
+            {
+                go.transform.DOScale(go.transform.localScale * 1.1f, 0.05f);
+                DownCall?.Invoke();
+            });
         }
 
         public static void ClearBtnClick(GameObject go)
