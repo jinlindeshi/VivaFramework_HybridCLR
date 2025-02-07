@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using VivaFramework;
@@ -16,7 +17,7 @@ public class Test1
         GameObject uiCanvas = GameObject.Instantiate(p1);
         GameObject bg = GameObject.Instantiate(p2, uiCanvas.transform);
         
-        EffectUtil.BtnClickDownUP(bg.transform.Find("Button").gameObject, () => { Debug.Log("你妹啊~1");}
-            ,() => { Debug.Log("你妹啊~2");});
+        EffectUtil.BtnClickDownUP(bg.transform.Find("Button").gameObject, () => { Debug.Log("点击~1");}
+            ,() => { Debug.Log("点击~2");});
     }
 }
