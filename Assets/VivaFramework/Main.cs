@@ -348,6 +348,8 @@ namespace VivaFramework
         private void InitManagers()
         {
             resManager = gameObject.AddComponent<ResourceManager>();
+            sceneManager = gameObject.AddComponent<SceneManager>();
+            audioManager = gameObject.AddComponent<AudioManager>();
         }
 
         private string GetWebRequestPath(string asset)
