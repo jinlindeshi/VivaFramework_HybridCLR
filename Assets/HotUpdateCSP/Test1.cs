@@ -29,5 +29,7 @@ public class Test1
     private static void ChangeScene(Scene s)
     {
         Debug.Log("你妹啊~");
+        GameObject p = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/TestAvatar.prefab");
+        GameObject.Instantiate(p);
     }
 }
