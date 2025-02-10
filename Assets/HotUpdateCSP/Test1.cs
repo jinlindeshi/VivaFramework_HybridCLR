@@ -29,7 +29,16 @@ public class Test1
     private static void ChangeScene(Scene s)
     {
         Debug.Log("你妹啊~");
-        GameObject p = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/TestAvatar.prefab");
-        GameObject.Instantiate(p);
+        GameObject p1 = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/TestAvatar.prefab");
+        GameObject p2 = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/Dwarf.prefab");
+        GameObject p3 = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/Flag.prefab");
+        GameObject qibing = GameObject.Instantiate(p1);
+        GameObject Dwarf = GameObject.Instantiate(p2);
+        GameObject Flag = GameObject.Instantiate(p3);
+        
+        qibing.transform.localScale = Vector3.one*2;
+        Dwarf.transform.localScale = Vector3.one*2;
+        qibing.transform.localPosition = new Vector3(3, 0, 0);
+        Dwarf.transform.localPosition = new Vector3(-3, 0, 0);
     }
 }
