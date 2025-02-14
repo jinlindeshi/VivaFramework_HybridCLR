@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace VivaFramework {
     public class AppConst {
-		public static bool BundleMode = true;                    //AssetBundle模式 
+		public static bool BundleMode = false;                    //AssetBundle模式 
         public static bool UpdateMode = false;                    //访问更新服务器的更新模式
         public static bool AddBundleBuild = true;                    //增量打包
 

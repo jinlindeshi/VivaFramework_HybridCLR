@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WxEditor", "WxEditor.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coffee.UIParticle.Editor", "Coffee.UIParticle.Editor.csproj", "{2b3febaa-d680-7ed4-3dbe-8721628c8671}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{b0a47131-c033-6baf-ffc4-7339f8813580}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotUpdateCSP", "HotUpdateCSP.csproj", "{7fa620ac-a8ae-a390-f310-074581702d6d}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{b0a47131-c033-6baf-ffc4-7339f8813580}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{f1ea9b23-f3c5-dd20-d565-964830104ee6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2b3febaa-d680-7ed4-3dbe-8721628c8671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2b3febaa-d680-7ed4-3dbe-8721628c8671}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{b0a47131-c033-6baf-ffc4-7339f8813580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{b0a47131-c033-6baf-ffc4-7339f8813580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7fa620ac-a8ae-a390-f310-074581702d6d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7fa620ac-a8ae-a390-f310-074581702d6d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b0a47131-c033-6baf-ffc4-7339f8813580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b0a47131-c033-6baf-ffc4-7339f8813580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

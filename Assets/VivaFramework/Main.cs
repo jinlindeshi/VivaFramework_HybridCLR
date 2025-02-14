@@ -448,13 +448,13 @@ namespace VivaFramework
             }
 
             InitManagers();
-            StartCoroutine( Test());
+            StartCoroutine( NextFrameStart());
         }
 
-        IEnumerator Test()
+        IEnumerator NextFrameStart()
         {
-            yield return new WaitForSeconds(1);
-            Type entryType = _hotUpdateAss.GetType("Test1");
+            yield return null;
+            Type entryType = _hotUpdateAss.GetType("Game");
             entryType.GetMethod("Start").Invoke(null, null);
         }
     }
