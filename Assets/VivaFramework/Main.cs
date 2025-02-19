@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using HybridCLR;
+using UnityEngine.Events;
 using VivaFramework;
 
 namespace VivaFramework
@@ -302,7 +303,8 @@ namespace VivaFramework
         private string _extractFileName;
         private float _extractProgress = 0;
 
-        private void Update()
+
+        private void CheckUpdateUIProgress()
         {
             if (_updateLoadingUI == null) return;
 
@@ -321,10 +323,69 @@ namespace VivaFramework
                 barImg.fillAmount = _extractProgress;
                 infoText.text = "解压中：" + _extractFileName + " " + Math.Floor(_extractProgress * 100) + "%";
             }
-
-
         }
 
+        private static Dictionary<string, List<Action>> _behaviorActions = new Dictionary<string, List<Action>>();
+        public static string BEHAVIOR_UPDATE = "Update";
+        public static string BEHAVIOR_LATEUPDATE = "LateUpdate";
+        public static string BEHAVIOR_FIXEDUPDATE = "FixedUpdate";
+        public static void AddBehaviorListener(string behaviorName, Action callback)
+        {
+            if (_behaviorActions.ContainsKey(behaviorName) == false)
+            {
+                _behaviorActions.Add(behaviorName, new List<Action>());
+            }
+            List<Action> list = _behaviorActions[behaviorName];
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] == callback)
+                {
+                    return;
+                }
+            }
+            _behaviorActions[behaviorName].Add(callback);
+        }
+
+        public static void RemoveBehaviorListener(string behaviorName, Action callback)
+        {
+            if (_behaviorActions.ContainsKey(behaviorName) == false) return;
+            List<Action> list = _behaviorActions[behaviorName];
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] == callback)
+                {
+                    list.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+        
+
+        private static void CheckBehaviorCallback(string behaviorName)
+        {
+            if (_behaviorActions.ContainsKey(behaviorName) == false) return;
+            List<Action> list = _behaviorActions[behaviorName];
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].Invoke();
+            }
+        }
+        
+        private void Update()
+        {
+            CheckUpdateUIProgress();
+            CheckBehaviorCallback(BEHAVIOR_UPDATE);
+        }
+
+        private void LateUpdate()
+        {
+            CheckBehaviorCallback(BEHAVIOR_LATEUPDATE);
+        }
+
+        private void FixedUpdate()
+        {
+            CheckBehaviorCallback(BEHAVIOR_FIXEDUPDATE);
+        }
 
         /// <summary>
         /// 资源初始化结束
