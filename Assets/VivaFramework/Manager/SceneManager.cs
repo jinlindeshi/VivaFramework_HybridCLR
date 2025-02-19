@@ -13,10 +13,18 @@ namespace VivaFramework
 
 		    print("SceneManager - LoadSceneAsync " + sceneName);
 		    string mainAbName = "scene_" + sceneName.ToLower();
-		    Main.resManager.LoadAssetBundle(mainAbName, true, () =>
+		    Action loadSceneCall = () =>
 		    {
 			    StartCoroutine(LoadingScene(sceneName, callBack, mode));
-		    });
+		    };
+		    if (AppConst.UseBundle == true)
+		    {
+			    Main.resManager.LoadAssetBundle(mainAbName, true, loadSceneCall);
+		    }
+		    else
+		    {
+			    loadSceneCall();
+		    }
 		}
 	    
 	    public void UnLoadSceneAsync(Scene scene, Action callBack)

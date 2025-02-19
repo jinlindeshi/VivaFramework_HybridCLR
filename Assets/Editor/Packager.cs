@@ -325,7 +325,7 @@ public class Packager {
         info.WindowStyle = ProcessWindowStyle.Hidden;
         info.UseShellExecute = isWin;
         info.ErrorDialog = true;
-        Util.Log(info.FileName + " " + info.Arguments);
+        Debug.Log(info.FileName + " " + info.Arguments);
 
         Process pro = Process.Start(info);
         pro.WaitForExit();
@@ -356,7 +356,7 @@ public class Packager {
             info.UseShellExecute = true;
             info.WorkingDirectory = dir;
             info.ErrorDialog = true;
-            Util.Log(info.FileName + " " + info.Arguments);
+            Debug.Log(info.FileName + " " + info.Arguments);
 
             Process pro = Process.Start(info);
             pro.WaitForExit();

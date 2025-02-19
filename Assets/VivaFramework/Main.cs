@@ -343,6 +343,7 @@ namespace VivaFramework
                     return;
                 }
             }
+            // print("AddBehaviorListener - " + behaviorName + " - " + callback);
             _behaviorActions[behaviorName].Add(callback);
         }
 
@@ -355,6 +356,7 @@ namespace VivaFramework
                 if (list[i] == callback)
                 {
                     list.RemoveAt(i);
+                    // print("RemoveBehaviorListener - " + behaviorName + " - " + callback);
                     return;
                 }
             }
@@ -515,7 +517,8 @@ namespace VivaFramework
         IEnumerator NextFrameStart()
         {
             yield return null;
-            Type entryType = _hotUpdateAss.GetType("Game");
+            // Type entryType = _hotUpdateAss.GetType("Game");
+            Type entryType = _hotUpdateAss.GetType("Test1");
             entryType.GetMethod("Start").Invoke(null, null);
         }
     }

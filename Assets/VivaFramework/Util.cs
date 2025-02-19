@@ -244,16 +244,70 @@ using UnityEditor;
             return path;
         }
 
-        public static void Log(string str) {
-            Debug.Log(str);
+        public static void Print(params object[] arr)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var s in arr)
+            {
+                sb.Append(s.ToString());
+                sb.Append(" ");
+            }
+            Debug.Log(sb);
         }
 
-        public static void LogWarning(string str) {
-            Debug.LogWarning(str);
+        public struct DelayInfo
+        {
+            public Action call;
+            public float startTime;
+            public float delayTime;
+            public Action callBack;
+            public Boolean pause;
+
+            public DelayInfo(Action p1, float p2, float p3, Action p4)
+            {
+                call = p1;
+                startTime = p2;
+                delayTime = p3;
+                callBack = p4;
+                pause = false;
+            }
         }
 
-        public static void LogError(string str) {
-            Debug.LogError(str);
+        private static Dictionary<Action, DelayInfo> _delayInfos = new Dictionary<Action, DelayInfo>();
+        public static DelayInfo DelayedCall(float delayTime, Action callBack)
+        {
+            Action delayCheck = null;
+            float startTime = Time.time;
+            delayCheck = () =>
+            {
+                if ((Time.time - startTime) > delayTime)
+                {
+                    Main.RemoveBehaviorListener(Main.BEHAVIOR_UPDATE, delayCheck);
+                    _delayInfos.Remove(delayCheck);
+                    callBack();
+                }
+            };
+            Main.AddBehaviorListener(Main.BEHAVIOR_UPDATE, delayCheck);
+            _delayInfos[delayCheck] = new DelayInfo(delayCheck, startTime, delayTime, callBack);
+            return _delayInfos[delayCheck];
+        }
+
+
+        public static DelayInfo? StopDelayedCall(DelayInfo delayInfo)
+        {
+            if ((Time.time - delayInfo.startTime) > delayInfo.delayTime) return null;
+            delayInfo.pause = true;
+            if (_delayInfos.ContainsKey(delayInfo.call)) _delayInfos.Remove(delayInfo.call);
+            Main.RemoveBehaviorListener(Main.BEHAVIOR_UPDATE, delayInfo.call);
+            delayInfo.delayTime = delayInfo.delayTime - (Time.time - delayInfo.startTime);
+            return delayInfo;
+        }
+
+        public static void ResumeDelayedCall(DelayInfo delayInfo)
+        {
+            if (_delayInfos.ContainsKey(delayInfo.call)) return;
+            delayInfo.pause = false;
+            DelayedCall(delayInfo.delayTime, delayInfo.callBack);
         }
 
         /// <summary>

@@ -28,7 +28,8 @@ public class Test1
 
     private static void ChangeScene(Scene s)
     {
-        Debug.Log("你妹啊~");
+        Util.Print("你妹啊~", s);
+        // Debug.Log("你妹啊~" + s);
         GameObject p1 = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/TestAvatar.prefab");
         GameObject p2 = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/Dwarf.prefab");
         GameObject p3 = Main.resManager.LoadPrefabAtPath("Prefabs/Battle/Flag.prefab");
@@ -41,8 +42,9 @@ public class Test1
         qibing.transform.localPosition = new Vector3(3, 0, 0);
         Dwarf.transform.localPosition = new Vector3(-3, 0, 0);
         
-        startTime = Time.realtimeSinceStartup;
-        Main.AddBehaviorListener(Main.BEHAVIOR_UPDATE, TestHandler);
+        // startTime = Time.realtimeSinceStartup;
+        // Main.AddBehaviorListener(Main.BEHAVIOR_UPDATE, TestHandler);
+        Util.DelayedCall(3, () => { Util.Print("DelayCall测试"); });
     }
 
     private static float startTime = 0; 
@@ -50,7 +52,7 @@ public class Test1
     {
         var passedTime = Time.realtimeSinceStartup - startTime;
         Debug.Log("计时中 - " + passedTime);
-        if (passedTime > 10f)
+        if (passedTime > 3f)
         {
             Debug.Log("计时结束 - " + passedTime);
             Main.RemoveBehaviorListener(Main.BEHAVIOR_UPDATE, TestHandler);
