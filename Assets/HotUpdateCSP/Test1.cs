@@ -40,5 +40,20 @@ public class Test1
         Dwarf.transform.localScale = Vector3.one*2;
         qibing.transform.localPosition = new Vector3(3, 0, 0);
         Dwarf.transform.localPosition = new Vector3(-3, 0, 0);
+        
+        startTime = Time.realtimeSinceStartup;
+        Main.AddBehaviorListener(Main.BEHAVIOR_UPDATE, TestHandler);
+    }
+
+    private static float startTime = 0; 
+    private static void TestHandler()
+    {
+        var passedTime = Time.realtimeSinceStartup - startTime;
+        Debug.Log("计时中 - " + passedTime);
+        if (passedTime > 10f)
+        {
+            Debug.Log("计时结束 - " + passedTime);
+            Main.RemoveBehaviorListener(Main.BEHAVIOR_UPDATE, TestHandler);
+        }
     }
 }
